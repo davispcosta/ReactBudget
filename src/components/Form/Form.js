@@ -1,10 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 class Form extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     handleSubmit = (event) => {
         event.preventDefault();

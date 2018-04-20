@@ -3,11 +3,8 @@ import ExpenseCard from '../ExpenseCard/ExpenseCard';
 
 const ExpenseList = (props) => {
 
-    function getExpenses() {
-        var components = props.list.map( (item) => {
-            return <ExpenseCard key={item.id} description={item.description} value={item.value} porcentage="15%"/>
-        })
-        return components;
+    var handleDelete = (key) => {
+        props.onClick(key, "exp");
     }
 
     return(
@@ -15,7 +12,16 @@ const ExpenseList = (props) => {
             <h2 className="expenses__title">Expenses</h2>
 
             <div className="expenses__list">
-                { getExpenses() }
+                { props.list.map( (item) => {
+                    return <ExpenseCard 
+                    key={item.id}
+                    index={item.id}
+                    description={item.description} 
+                    value={item.value} 
+                    porcentage={item.porcentage}
+                    onClick={handleDelete} /> 
+                    }) 
+                }
             </div>
         </div>
     );
